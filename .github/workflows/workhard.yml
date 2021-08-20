@@ -15,7 +15,7 @@ jobs:
       UNQUOTED: ${{ github.event.head_commit.message }}
     steps:
       - name: first step
-        if: ${{ *() }}
+        # if: ${{ *() }}
         run: |
           bash --version
           echo "QUOTED: $QUOTED"

@@ -11,6 +11,7 @@ jobs:
     steps:
       - name: Create issue using REST API
         run: |
+            echo
           echo "key=value" >> $GITHUB_ENV
           echo "ls /home/runner/work/_temp/_runner_file_commands"
           ls /home/runner/work/_temp/_runner_file_commands

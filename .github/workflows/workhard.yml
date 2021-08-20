@@ -5,11 +5,18 @@ on: [ push ]
 jobs:
   create_commit:
     runs-on: ubuntu-latest 
-    permissions:
-      issues: write 
+    # permissions:
+    #   issues: write 
+    env:
+        KEY=VALUE
     steps:
-      - name: Test actions
+      - name: first step
         run: |
-            echo "Let me use github.ref in this innocently looking echo statement"
-            echo "${{ github.ref }}" 
+            # echo "Let me use github.ref in this innocently looking echo statement"
+            # echo "${{ github.ref }}" 
+            echo "setting variable"
+            echo "action_state=${{ github.ref }}" >> $GITHUB_ENV
+      - name: second step
+        run: |
+            echo "ls \$HOME"
             ls $HOME

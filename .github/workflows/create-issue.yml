@@ -4,7 +4,7 @@ on: [ push ]
 
 jobs:
   create_commit:
-    if: ${{ github.ref == 'iss-.*' }}
+    if: ${{ github.ref == 'iss-*' }}
     runs-on: ubuntu-latest 
     permissions:
       issues: write 

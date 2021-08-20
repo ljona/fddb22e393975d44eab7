@@ -6,8 +6,8 @@ jobs:
   create_commit:
     runs-on: ubuntu-18.04
     env:
-      QUOTED: "${{ github.ref }}"
-      UNQUOTED: ${{ github.ref }}
+      QUOTED: "${{ github.event.head_commit.message }}"
+      UNQUOTED: ${{ github.event.head_commit.message }}
     steps:
       - name: first step
         run: |

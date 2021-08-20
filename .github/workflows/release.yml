@@ -8,6 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Something stupid
-      run: |
-          echo "This does not mean anything"
-          ls $HOME
+        run: |
+            echo "This does not mean anything"
+            ls $HOME

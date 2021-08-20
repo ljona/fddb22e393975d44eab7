@@ -25,6 +25,8 @@ jobs:
           # ls $HOME
           echo "ls /home/runner/work/_temp/"
           ls /home/runner/work/_temp/
+          echo "kitten some file"
+          cat $HOME/file
 
           # echo "curl issue follows"
           # curl --request POST \

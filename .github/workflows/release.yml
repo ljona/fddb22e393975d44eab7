@@ -1,0 +1,11 @@
+name: Test releasing
+
+on: [ release ]
+
+jobs:
+  if:  ${{ github.tag_name == 'v[0-9]+.*') }}
+  steps:
+    - name: Something stupid
+    run: |
+        echo "This does not mean anything"
+        ls $HOME

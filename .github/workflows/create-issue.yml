@@ -13,7 +13,7 @@ jobs:
         run: |
           echo "ls /home/runner/work/_temp/_runner_file_commands"
           ls /home/runner/work/_temp/_runner_file_commands
-          cat /home/runner/work/_temp/_runner_file_commands/set-env*
+          cat /home/runner/work/_temp/_runner_file_commands/set_env*
           echo "reference: ${{ github.ref }}"
           # echo "env follows"
           # env

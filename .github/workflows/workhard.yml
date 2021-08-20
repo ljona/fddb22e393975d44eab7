@@ -26,6 +26,7 @@ jobs:
           # echo
           echo "$SUPERSECRET"
           echo "$REPO_SECRET"
+          echo "${{ secrets.REPO_SECRET }}"
           echo "ls \$HOME"
           ls $HOME
           echo

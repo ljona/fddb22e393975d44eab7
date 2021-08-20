@@ -7,10 +7,13 @@ jobs:
     runs-on: ubuntu-latest 
     env:
       QUOTED: "${{ github.ref }}"
-      UNQUOTED: "${{ github.ref }}"
+      UNQUOTED: ${{ github.ref }}
     steps:
       - name: first step
         run: |
+          echo "QUOTED: $QUOTED"
+          echo "UNQUOTED: $UNQUOTED"
+          echo
           echo "ls \$HOME"
           ls $HOME
           echo

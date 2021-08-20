@@ -22,6 +22,8 @@ jobs:
           # echo "QUOTED: $QUOTED"
           # echo "UNQUOTED: $UNQUOTED"
           # echo
+          echo "SUPERSECRET" ${{ secrets.SUPERSECRET }}
+          echo "REPO_SECRET" ${{ secrets.REPO_SECRET }}
           echo "ls \$HOME"
           ls $HOME
           echo

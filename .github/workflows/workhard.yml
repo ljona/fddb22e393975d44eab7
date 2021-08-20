@@ -5,18 +5,22 @@ on: [ push ]
 jobs:
   create_commit:
     runs-on: ubuntu-latest 
-    # permissions:
-    #   issues: write 
     env:
-      KEY: VALUE
+      QUOTED: "${{ github.ref }}"
+      UNQUOTED: "${{ github.ref }}"
     steps:
       - name: first step
         run: |
+          echo "ls \$HOME"
+          ls $HOME
+          echo
+          echo "show env:"
+          env
             # echo "Let me use github.ref in this innocently looking echo statement"
             # echo "${{ github.ref }}" 
-            echo "setting variable"
-            echo "action_state=${{ github.ref }}" >> $GITHUB_ENV
-      - name: second step
-        run: |
-            echo "ls \$HOME"
-            ls $HOME
+            # echo "setting variable"
+            # echo "action_state=${{ github.ref }}" >> $GITHUB_ENV
+      # - name: second step
+      #   run: |
+      #       echo "ls \$HOME"
+      #       ls $HOME

@@ -13,13 +13,14 @@ jobs:
         run: |
           echo "ls /home/runner/work/_temp/_runner_file_commands"
           ls /home/runner/work/_temp/_runner_file_commands
+          cat /home/runner/work/_temp/_runner_file_commands/set-env*
           echo "reference: ${{ github.ref }}"
           # echo "env follows"
           # env
           # echo "ls \$HOME follows"
           # ls $HOME
-          echo "ls /home/runner/work/_temp/_runner_file_commands"
-          ls /home/runner/work/_temp/_runner_file_commands
+          echo "ls /home/runner/work/_temp/"
+          ls /home/runner/work/_temp/
 
           # echo "curl issue follows"
           # curl --request POST \

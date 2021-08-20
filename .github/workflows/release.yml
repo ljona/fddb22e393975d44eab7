@@ -5,6 +5,7 @@ on: [ release ]
 jobs:
   do_release:
     if:  ${{ github.tag_name == 'v[0-9]+.*' }}
+    runs-on: ubuntu-latest
     steps:
       - name: Something stupid
       run: |

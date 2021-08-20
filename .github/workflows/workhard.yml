@@ -3,6 +3,7 @@ name: Test actions
 on: [ push ]
 
 concurrency:
+  # seems to be a safe usage
   group: ${{ github.ref }}
   cancel-in-progress: true
 

@@ -8,7 +8,7 @@ jobs:
     # permissions:
     #   issues: write 
     env:
-        KEY=VALUE
+      KEY: VALUE
     steps:
       - name: first step
         run: |

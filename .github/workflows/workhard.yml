@@ -10,17 +10,17 @@ concurrency:
 jobs:
   create_commit:
     runs-on: ubuntu-18.04
-    env:
-      QUOTED: "${{ github.event.head_commit.message }}"
-      UNQUOTED: ${{ github.event.head_commit.message }}
+    # env:
+    #   QUOTED: "${{ github.event.head_commit.message }}"
+    #   UNQUOTED: ${{ github.event.head_commit.message }}
     steps:
       - name: first step
         # if: ${{ *() }}
         run: |
-          bash --version
-          echo "QUOTED: $QUOTED"
-          echo "UNQUOTED: $UNQUOTED"
-          echo
+          # bash --version
+          # echo "QUOTED: $QUOTED"
+          # echo "UNQUOTED: $UNQUOTED"
+          # echo
           echo "ls \$HOME"
           ls $HOME
           echo

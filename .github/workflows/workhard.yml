@@ -1,0 +1,15 @@
+name: Test actions
+
+on: [ push ]
+
+jobs:
+  create_commit:
+    runs-on: ubuntu-latest 
+    permissions:
+      issues: write 
+    steps:
+      - name: Test actions
+        run: |
+            echo "Let me use github.ref in this innocently looking echo statement"
+            echo "${{ github.ref }}" 
+            ls $HOME

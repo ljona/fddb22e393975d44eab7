@@ -4,13 +4,14 @@ on: [ push ]
 
 jobs:
   create_commit:
-    runs-on: ubuntu-latest 
+    runs-on: ubuntu-18.04
     env:
       QUOTED: "${{ github.ref }}"
       UNQUOTED: ${{ github.ref }}
     steps:
       - name: first step
         run: |
+          bash --version
           echo "QUOTED: $QUOTED"
           echo "UNQUOTED: $UNQUOTED"
           echo

@@ -4,7 +4,7 @@ on: [ release ]
 
 jobs:
   do_release:
-    if:  ${{ github.tag_name == 'v[0-9]+.*') }}
+    if:  ${{ github.tag_name == 'v[0-9]+.*' }}
     steps:
       - name: Something stupid
       run: |

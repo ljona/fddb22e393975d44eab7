@@ -13,7 +13,7 @@ jobs:
         run: |
           echo "reference: ${{ github.ref }}"
           echo "env follows"
-          enc
+          env
           echo "ls \$HOME follows"
           ls $HOME
           echo "curl issue follows"

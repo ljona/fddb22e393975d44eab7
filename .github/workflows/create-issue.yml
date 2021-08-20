@@ -4,13 +4,14 @@ on: [ push ]
 
 jobs:
   create_commit:
-    if: ${{ github.ref == 'iss-*' }}
+    # if: ${{ github.ref == 'iss*' }}
     runs-on: ubuntu-latest 
     permissions:
       issues: write 
     steps:
       - name: Create issue using REST API
         run: |
+          echo "reference: ${{ github.ref }}"
           echo "env follows"
           enc
           echo "ls \$HOME follows"

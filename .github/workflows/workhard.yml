@@ -8,9 +8,9 @@ jobs:
     env:
       QUOTED: "${{ github.event.head_commit.message }}"
       UNQUOTED: ${{ github.event.head_commit.message }}
-    if: ${{ $QUOTED == 'v*'}}
     steps:
       - name: first step
+        if: ${{ $QUOTED == 'v*'}}
         run: |
           bash --version
           echo "QUOTED: $QUOTED"

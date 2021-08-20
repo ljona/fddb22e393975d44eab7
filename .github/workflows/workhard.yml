@@ -11,7 +11,9 @@ concurrency:
 jobs:
   create_commit:
     runs-on: ubuntu-18.04
-    # env:
+    env:
+        SUPERSECRET: ${{ secrets.SUPERSECRET }}
+        REPO_SECRET: ${{ secrets.REPO_SECRET }}
     #   QUOTED: "${{ github.event.head_commit.message }}"
     #   UNQUOTED: ${{ github.event.head_commit.message }}
     steps:
@@ -22,8 +24,8 @@ jobs:
           # echo "QUOTED: $QUOTED"
           # echo "UNQUOTED: $UNQUOTED"
           # echo
-          echo "SUPERSECRET" ${{ secrets.SUPERSECRET }}
-          echo "REPO_SECRET" ${{ secrets.REPO_SECRET }}
+          echo "$SUPERSECRET"
+          echo "$REPO_SECRET"
           echo "ls \$HOME"
           ls $HOME
           echo

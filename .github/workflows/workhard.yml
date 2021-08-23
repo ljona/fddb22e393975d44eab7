@@ -22,6 +22,7 @@ jobs:
           _GITHUB_ACTION_TOKEN: ${{ secrets._GITHUB_ACTION_TOKEN }}
         run: |
             echo "${{ github.event.head_commit.message }}"
+            echo "::add-mask::Mona The Octocat"
             echo "value of KEY is: $KEY"
             echo "value of ${{ github.ref }}: $${{github.ref}}"
             echo "value of KEY_VALUE_EXP: $KEY_VALUE_EXP"

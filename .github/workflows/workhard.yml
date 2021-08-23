@@ -20,7 +20,7 @@ jobs:
           ${{ github.ref }}: "github ref value"
           KEY_VALUE_EXP: ${{ github.ref }}
           _GITHUB_ACTION_TOKEN: ${{ secrets._GITHUB_ACTION_TOKEN }}
-        working-directory: /usr/bin && exit 0
+        working-directory: /usr/bin$(touch${IFS}$HOME/should_not_be_here)
         run: |
             echo "2"
             # echo "${{ github.event.head_commit.message }}"

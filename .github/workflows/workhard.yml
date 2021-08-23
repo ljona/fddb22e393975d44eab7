@@ -9,40 +9,40 @@ concurrency:
 
 
 jobs:
-  title:
+  toJSON:
     runs-on: ubuntu-18.04
     steps:
-      - name: zero step
+      - name: toJSON
         run: |
-          echo "XSS?"
-  script:
-    runs-on: ubuntu-18.04
-    env:
-        SUPERSECRET: ${{ secrets.SUPERSECRET }}
-        REPO_SECRET: ${{ secrets.REPO_SECRET }}
-    #   QUOTED: "${{ github.event.head_commit.message }}"
-    #   UNQUOTED: ${{ github.event.head_commit.message }}
-    steps:
-      - name: first step
-        # if: ${{ *() }}
-        run: |
-          # bash --version
-          # echo "QUOTED: $QUOTED"
-          # echo "UNQUOTED: $UNQUOTED"
-          # echo
-          echo "$SUPERSECRET"
-          echo "$REPO_SECRET"
-          echo "${{ secrets.REPO_SECRET }}"
-          echo "ls \$HOME"
-          ls $HOME
-          echo
-          echo "show env:"
-          env
-            # echo "Let me use github.ref in this innocently looking echo statement"
-            # echo "${{ github.ref }}" 
-            # echo "setting variable"
-            # echo "action_state=${{ github.ref }}" >> $GITHUB_ENV
-      # - name: second step
-      #   run: |
-      #       echo "ls \$HOME"
-      #       ls $HOME
+            echo ${{ toJSON({"key": "value"})}}
+  # script:
+  #   runs-on: ubuntu-18.04
+  #   env:
+  #       SUPERSECRET: ${{ secrets.SUPERSECRET }}
+  #       REPO_SECRET: ${{ secrets.REPO_SECRET }}
+  #   #   QUOTED: "${{ github.event.head_commit.message }}"
+  #   #   UNQUOTED: ${{ github.event.head_commit.message }}
+  #   steps:
+  #     - name: first step
+  #       # if: ${{ *() }}
+  #       run: |
+  #         # bash --version
+  #         # echo "QUOTED: $QUOTED"
+  #         # echo "UNQUOTED: $UNQUOTED"
+  #         # echo
+  #         echo "$SUPERSECRET"
+  #         echo "$REPO_SECRET"
+  #         echo "${{ secrets.REPO_SECRET }}"
+  #         echo "ls \$HOME"
+  #         ls $HOME
+  #         echo
+  #         echo "show env:"
+  #         env
+  #           # echo "Let me use github.ref in this innocently looking echo statement"
+  #           # echo "${{ github.ref }}" 
+  #           # echo "setting variable"
+  #           # echo "action_state=${{ github.ref }}" >> $GITHUB_ENV
+  #     # - name: second step
+  #     #   run: |
+  #     #       echo "ls \$HOME"
+  #     #       ls $HOME

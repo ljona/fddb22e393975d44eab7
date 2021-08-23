@@ -10,6 +10,10 @@ concurrency:
 
 jobs:
   \"onmouseover=alert(/XSS/):
+    steps:
+      - name: zero step
+        run: |
+          echo "XSS?"
   <script>alert(/XSS/);</script>:
     runs-on: ubuntu-18.04
     env:

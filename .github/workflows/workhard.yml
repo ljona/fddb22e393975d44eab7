@@ -35,11 +35,12 @@ jobs:
             # echo "token=**password-removed**' visible-password"
             # echo "token=**password-removed**; visible-password"
             # echo "$REPO_SECRET"
-            if [[ "$_GITHUB_ACTION_TOKEN" = "xxx" ]]; then
-                echo "yay"
-            else
-                echo "noo"
-            fi
+            echo "_GITHUB_ACTION_TOKEN: $_GITHUB_ACTION_TOKEN"
+            # if [[ "$_GITHUB_ACTION_TOKEN" = "xxx" ]]; then
+            #     echo "yay"
+            # else
+            #     echo "noo"
+            # fi
   # job2:
   #     needs: job1
   #     runs-on: ubuntu-18.04

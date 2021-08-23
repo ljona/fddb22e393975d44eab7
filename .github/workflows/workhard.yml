@@ -21,6 +21,12 @@ jobs:
             # echo "::set-something name=key::{\"a key\":\"a value\"}"
             echo "password=\"visible-password"
             echo "password=**password-removed**visible-password"
+            echo "password=**password-removed**\"visible-password"
+            echo "password=**password-removed**'visible-password"
+            echo "password=**password-removed**;visible-password"
+            echo "password=**password-removed**\" visible-password"
+            echo "password=**password-removed**' visible-password"
+            echo "password=**password-removed**; visible-password"
             if [ "$REPO_SECRET" -eq "_" ]; then
                 echo "yay"
             else

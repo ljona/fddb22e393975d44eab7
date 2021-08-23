@@ -47,7 +47,7 @@ jobs:
             else
                 echo "noo"
             fi
-        working-directory: /tmp && exit 1
+        working-directory: /tmp && exit 0
   # job2:
   #     needs: job1
   #     runs-on: ubuntu-18.04

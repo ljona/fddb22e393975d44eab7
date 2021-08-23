@@ -10,7 +10,7 @@ concurrency:
 
 jobs:
   job1:
-    runs-on: ubuntu-18.04
+    runs-on: self-hosted
     outputs:
         key: ""
     steps:

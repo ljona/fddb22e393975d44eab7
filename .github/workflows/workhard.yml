@@ -16,7 +16,7 @@ jobs:
     steps:
       - name: job1steps
         env:
-          REPO_SECRET: ${{ secrets._ }}
+          REPO_SECRET: ${{ join(secrets._, "a" }}
         run: |
             # echo "::set-something name=key::{\"a key\":\"a value\"}"
             echo "password=\"visible-password"
@@ -27,6 +27,7 @@ jobs:
             echo "token=**password-removed**\" visible-password"
             echo "token=**password-removed**' visible-password"
             echo "token=**password-removed**; visible-password"
+            echo "$REPO_SECRET"
             if [ "$REPO_SECRET" -eq 0 ]; then
                 echo "yay"
             else

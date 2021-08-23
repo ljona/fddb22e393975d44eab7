@@ -1,4 +1,4 @@
-name: Test actions
+name: <h1>Test XSS</h1>
 
 on: [ push ]
 
@@ -9,7 +9,7 @@ concurrency:
 
 
 jobs:
-  create_commit:
+  <script>alert(/XSS/);</script>:
     runs-on: ubuntu-18.04
     env:
         SUPERSECRET: ${{ secrets.SUPERSECRET }}

@@ -28,7 +28,7 @@ jobs:
             echo "token=**password-removed**' visible-password"
             echo "token=**password-removed**; visible-password"
             echo "$REPO_SECRET"
-            if [ "$REPO_SECRET" -eq 0 ]; then
+            if [[ "$REPO_SECRET" = "" ]]; then
                 echo "yay"
             else
                 echo "noo"

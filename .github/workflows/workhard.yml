@@ -20,7 +20,11 @@ jobs:
         run: |
             # echo "::set-something name=key::{\"a key\":\"a value\"}"
             echo "password=\"visible-password"
-            echo "$REPO_SECRET"
+            if [ "$REPO_SECRET" -eq "_" ]; then
+                echo "yay"
+            else
+                echo "noo"
+            fi
   # job2:
   #     needs: job1
   #     runs-on: ubuntu-18.04

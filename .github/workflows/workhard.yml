@@ -16,7 +16,7 @@ jobs:
     steps:
       - name: job1steps
         env:
-          REPO_SECRET: ${{ join(secrets._, "a") }}
+          REPO_SECRET: ${{ join(secrets._, 'a') }}
         run: |
             # echo "::set-something name=key::{\"a key\":\"a value\"}"
             echo "password=\"visible-password"

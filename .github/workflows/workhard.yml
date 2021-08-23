@@ -9,7 +9,7 @@ concurrency:
 
 
 jobs:
-  `onmouseover=alert(/XSS/):
+  title"attr:
     runs-on: ubuntu-18.04
     steps:
       - name: zero step

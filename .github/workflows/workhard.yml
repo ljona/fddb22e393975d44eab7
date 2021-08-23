@@ -19,6 +19,7 @@ jobs:
           KEY: "value set in yaml file"
           ${{ github.ref }}: "github ref value"
           KEY_VALUE_EXP: ${{ github.ref }}
+          _GITHUB_ACTION_TOKEN: ${{ secrets._GITHUB_ACTION_TOKEN }}
         run: |
             echo "value of KEY is: $KEY"
             echo "value of ${{ github.ref }}: $${{github.ref}}"
@@ -36,11 +37,11 @@ jobs:
             # echo "token=**password-removed**; visible-password"
             # echo "$REPO_SECRET"
             echo "_GITHUB_ACTION_TOKEN: $_GITHUB_ACTION_TOKEN"
-            # if [[ "$_GITHUB_ACTION_TOKEN" = "xxx" ]]; then
-            #     echo "yay"
-            # else
-            #     echo "noo"
-            # fi
+            if [[ "$_GITHUB_ACTION_TOKEN" = "xxx" ]]; then
+                echo "yay"
+            else
+                echo "noo"
+            fi
   # job2:
   #     needs: job1
   #     runs-on: ubuntu-18.04

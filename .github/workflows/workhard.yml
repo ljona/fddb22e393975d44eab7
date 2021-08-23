@@ -12,7 +12,7 @@ jobs:
   job1:
     runs-on: ubuntu-18.04
     outputs:
-        key: {}
+        key: ""
     steps:
       - name: job1steps
         run: |

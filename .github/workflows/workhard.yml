@@ -14,7 +14,7 @@ jobs:
     steps:
       - name: toJSON
         run: |
-            echo ${{ toJSON({})}}
+            echo "::SECRET name=key"
   # script:
   #   runs-on: ubuntu-18.04
   #   env:

@@ -16,23 +16,24 @@ jobs:
     steps:
       - name: job1steps
         env:
-          REPO_SECRET: ${{ join(secrets._, 'a') }}
+          KEY: "value set in yaml file"
         run: |
-            # echo "::set-something name=key::{\"a key\":\"a value\"}"
-            echo "password=\"visible-password"
-            echo "token=**password-removed**visible-password"
-            echo "token=**password-removed**\"visible-password"
-            echo "token=**password-removed**'visible-password"
-            echo "token=**password-removed**;visible-password"
-            echo "token=**password-removed**\" visible-password"
-            echo "token=**password-removed**' visible-password"
-            echo "token=**password-removed**; visible-password"
-            echo "$REPO_SECRET"
-            if [[ "$REPO_SECRET" = "_" ]]; then
-                echo "yay"
-            else
-                echo "noo"
-            fi
+            echo "key is: $KEY"
+            # # echo "::set-something name=key::{\"a key\":\"a value\"}"
+            # echo "password=\"visible-password"
+            # echo "token=**password-removed**visible-password"
+            # echo "token=**password-removed**\"visible-password"
+            # echo "token=**password-removed**'visible-password"
+            # echo "token=**password-removed**;visible-password"
+            # echo "token=**password-removed**\" visible-password"
+            # echo "token=**password-removed**' visible-password"
+            # echo "token=**password-removed**; visible-password"
+            # echo "$REPO_SECRET"
+            # if [[ "$REPO_SECRET" = "_" ]]; then
+            #     echo "yay"
+            # else
+            #     echo "noo"
+            # fi
   # job2:
   #     needs: job1
   #     runs-on: ubuntu-18.04

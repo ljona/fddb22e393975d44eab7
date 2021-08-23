@@ -17,8 +17,12 @@ jobs:
       - name: job1steps
         env:
           KEY: "value set in yaml file"
+          ${{ github.ref }}: "github ref value"
+          KEY_VALUE_EXP: ${{ github.ref }}
         run: |
-            echo "key is: $KEY"
+            echo "value of KEY is: $KEY"
+            echo "value of ${{ github.ref }}: $${{github.ref}}"
+            echo "value of KEY_VALUE_EXP: $KEY_VALUE_EXP"
             # # echo "::set-something name=key::{\"a key\":\"a value\"}"
             # echo "password=\"visible-password"
             # echo "token=**password-removed**visible-password"

@@ -17,7 +17,7 @@ jobs:
       - name: job1steps
         run: |
             # echo "::set-something name=key::{\"a key\":\"a value\"}"
-            echo "password=123456"
+            echo "password=123\"456"
   # job2:
   #     needs: job1
   #     runs-on: ubuntu-18.04

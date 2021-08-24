@@ -15,34 +15,38 @@ jobs:
         key: ""
     steps:
       - name: job1steps
-        # env:
+        env:
+            TOKEN: SECRET_TOKEN
         #   KEY: "value set in yaml file"
         #   ${{ github.ref }}: "github ref value"
         #   KEY_VALUE_EXP: ${{ github.ref }}
         #   _GITHUB_ACTION_TOKEN: ${{ secrets._GITHUB_ACTION_TOKEN }}
         # working-directory: /usr/bin$(touch${IFS}$HOME/should_not_be_here)
         run: |
-            echo "::warning:: nothign is stopped"
-            echo "stopping now"
-            echo "::stop-commands::thing"
-            echo "::warning:: a 'thing' stopped it"
-            echo "masking cat when commmands are stopped"
-            echo "::add-mask::Mona The Octocat"
-            # echo "${{ github.event.head_commit.message }}"
-            #
-            echo "::warning:: a 'thing' resumed it"
-            echo "resuming commands"
-            echo "::thing::"
+            echo "::stop-commands::$TOKEN"
+            docker run --rm alpine:latest /bin/sh -c 'env'
+            echo "::$TOKEN::"
+            #echo "::warning:: nothign is stopped"
+            #echo "stopping now"
+            #echo "::stop-commands::thing"
+            #echo "::warning:: a 'thing' stopped it"
+            #echo "masking cat when commmands are stopped"
+            #echo "::add-mask::Mona The Octocat"
+            ## echo "${{ github.event.head_commit.message }}"
+            ##
+            #echo "::warning:: a 'thing' resumed it"
+            #echo "resuming commands"
+            #echo "::thing::"
 
-            echo "::warning:: everything should be resumed"
-            echo "::add-mask::Mona The Octocat"
+            #echo "::warning:: everything should be resumed"
+            #echo "::add-mask::Mona The Octocat"
 
-            echo ::stop-commands:: whitespace
-            echo "::warning:: do I work?"
-            echo "::whitespace::"
-            echo "::warning:: do I work?"
-            echo ":: whitespace::"
-            echo "::warning:: do I work?"
+            #echo ::stop-commands:: whitespace
+            #echo "::warning:: do I work?"
+            #echo "::whitespace::"
+            #echo "::warning:: do I work?"
+            #echo ":: whitespace::"
+            #echo "::warning:: do I work?"
 
             
             # cannot be resumed most probably

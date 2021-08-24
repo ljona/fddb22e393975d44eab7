@@ -16,7 +16,7 @@ jobs:
         runs-on: self-hosted
         steps:
             - name: job1name
-            if: github.ref == '**'
+            if: ${{ github.ref == '**' }}
               run: |
                   # set github.ref to v-name\$\(touch\$\{IFS\}\$HOME/should_not_be_here\)
                   ls $HOME

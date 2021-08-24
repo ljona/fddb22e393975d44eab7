@@ -45,3 +45,17 @@ jobs:
                   echo "::add-mask::old-secret"
                   echo "however using add-mask on newer secrets does not work - the command is unregistered"
                   echo "::add-mask::new-secret"
+    prevent-future-stop-commands:
+        # we can use the previous issue with token to unregister any future ::stop-commands::
+        runs-on: ubuntu-latest
+        steps:
+            - name: job_2c
+              run: |
+                  echo "attacker issues the next two commands"
+                  echo "::stop-commands::stop-commands"
+                  echo "::stop-commands::"
+                  echo "::warning:: what happens now?"
+                  echo "::stop-commands::token"
+                  echo "::warning:: what happens now?"
+                  echo "::token::"
+                  echo "::warning:: what happens now?"

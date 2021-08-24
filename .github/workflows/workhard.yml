@@ -26,11 +26,12 @@ jobs:
         # working-directory: /usr/bin$(touch${IFS}$HOME/should_not_be_here)
         run: |
             # echo "::add-mask::something to mask"
-            echo "::stop-commands::warning"
-            echo "::add-mask::something to mask"
             echo "::warning::do i work?"
+            echo "::stop-commands::warning"
+            # echo "::add-mask::something to mask"
+            # echo "::warning::do i work?"
+            # this unregisters 'warning' command
             echo "::warning::"
-            echo "::add-mask::something to mask"
             echo "::warning::do i work?"
 
             # echo "::stop-commands::$TOKEN"

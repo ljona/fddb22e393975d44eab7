@@ -18,6 +18,7 @@ jobs:
         env:
             TOKEN: SECRET_TOKEN
             MY_VAR: "${{ github.event.head_commit.message }}"
+            X::SOMETHING
         #   KEY: "value set in yaml file"
         #   ${{ github.ref }}: "github ref value"
         #   KEY_VALUE_EXP: ${{ github.ref }}
@@ -31,6 +32,7 @@ jobs:
 
             echo "::$TOKEN::"
             echo "::warning::do i work?"
+            echo "$SOMETHING"
             # echo "::stop-commands::$TOKEN"
             # docker run --rm alpine:latest /bin/sh -c 'env'
             # echo "::$TOKEN::"

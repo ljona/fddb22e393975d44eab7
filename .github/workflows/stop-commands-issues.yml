@@ -1,5 +1,5 @@
 # Test various issues with ::stop-commands::
-name: ::stop-commands:: issues
+name: stop-commands issues
 
 on: [ push ]
 

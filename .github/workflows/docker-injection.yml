@@ -12,7 +12,7 @@ jobs:
                   ls
     invoke-docker:
         runs-on: self-hosted
-        stesp:
+        steps:
             - name: job_2
               run: |
                   docker run --rm alpine:latest /bin/sh -c 'echo "something"'

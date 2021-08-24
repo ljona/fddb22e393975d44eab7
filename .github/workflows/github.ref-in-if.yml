@@ -6,6 +6,14 @@ on: [ push ]
 jobs:
     job1:
         runs-on: self-hosted
+        env:
+            REF: ${{ github.ref }}
+        steps:
+            - name: job1name
+              run: |
+                  echo "github ref through env var is: $REF"
+    job1:
+        runs-on: self-hosted
         if: github.ref == 'v*'
         steps:
             - name: job1name

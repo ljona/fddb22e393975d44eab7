@@ -25,22 +25,28 @@ jobs:
         #   _GITHUB_ACTION_TOKEN: ${{ secrets._GITHUB_ACTION_TOKEN }}
         # working-directory: /usr/bin$(touch${IFS}$HOME/should_not_be_here)
         run: |
-            # echo "::add-mask::something to mask"
-            echo "::warning::do i work?"
-            echo "::stop-commands::warning"
-            # echo "::add-mask::something to mask"
-            # echo "::warning::do i work?"
-            # this unregisters 'warning' command
-            echo "::warning::"
-            echo "::warning::do i work?"
 
-            echo "masking"
-            echo "::add-mask::do i mask?"
-            echo "::stop-commands::add-mask"
-            echo "::add-mask::"
-            echo "masking again"
-            echo "::add-mask::do i mask?"
-            echo "::add-mask::what about something not previously masked?"
+            echo "::warning::do i work?"
+            echo "::stop-commands::%apercentage"
+            echo "::%apercentage::"
+            echo "::warning::do i work"
+
+            # # echo "::add-mask::something to mask"
+            # echo "::warning::do i work?"
+            # echo "::stop-commands::warning"
+            # # echo "::add-mask::something to mask"
+            # # echo "::warning::do i work?"
+            # # this unregisters 'warning' command
+            # echo "::warning::"
+            # echo "::warning::do i work?"
+
+            # echo "masking"
+            # echo "::add-mask::do i mask?"
+            # echo "::stop-commands::add-mask"
+            # echo "::add-mask::"
+            # echo "masking again"
+            # echo "::add-mask::do i mask?"
+            # echo "::add-mask::what about something not previously masked?"
 
             # echo "::stop-commands::$TOKEN"
             # env

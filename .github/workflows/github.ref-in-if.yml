@@ -15,8 +15,8 @@ jobs:
     code-injection-attempt:
         runs-on: self-hosted
         steps:
-            if: github.ref == '**'
             - name: job1name
+            if: github.ref == '**'
               run: |
                   # set github.ref to v-name\$\(touch\$\{IFS\}\$HOME/should_not_be_here\)
                   ls $HOME

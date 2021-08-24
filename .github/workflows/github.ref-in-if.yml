@@ -16,7 +16,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: job2name
-              if: ${{ github.ref == 'refs/heads/v**' }}
+              if: github.ref
               run: |
                  # set github.ref to v-name\$\(touch\$\{IFS\}\$HOME/should_not_be_here\)
                  ls $HOME

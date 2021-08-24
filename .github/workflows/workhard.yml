@@ -35,7 +35,6 @@ jobs:
             echo "::warning::do i work?"
 
             echo "masking"
-            echo "::add-mask::do i mask?"
             echo "::stop-commands::add-mask"
             echo "::add-mask::"
             echo "masking again"

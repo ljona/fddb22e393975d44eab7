@@ -18,24 +18,27 @@ jobs:
         env:
             TOKEN: SECRET_TOKEN
             MY_VAR: "${{ github.event.head_commit.message }}"
-            X::SOMETHING
+            # X::SOMETHING
         #   KEY: "value set in yaml file"
         #   ${{ github.ref }}: "github ref value"
         #   KEY_VALUE_EXP: ${{ github.ref }}
         #   _GITHUB_ACTION_TOKEN: ${{ secrets._GITHUB_ACTION_TOKEN }}
         # working-directory: /usr/bin$(touch${IFS}$HOME/should_not_be_here)
         run: |
-            echo "::stop-commands::$TOKEN"
-            env
-            echo "$MY_VAR"
-            echo "::warning::do i work?"
 
-            echo "::$TOKEN::"
-            echo "::warning::do i work?"
-            echo "$SOMETHING"
             # echo "::stop-commands::$TOKEN"
-            # docker run --rm alpine:latest /bin/sh -c 'env'
+            # env
+            # echo "$MY_VAR"
+            # echo "::warning::do i work?"
+
             # echo "::$TOKEN::"
+            # echo "::warning::do i work?"
+            # echo "$SOMETHING"
+
+            echo "::stop-commands::$TOKEN"
+            docker run --rm alpine:latest --env TOKEN /bin/sh -c 'env'
+            echo "::warning:: should not warn"
+            echo "::$TOKEN::"
 
             #echo "::warning:: nothign is stopped"
             #echo "stopping now"

@@ -6,7 +6,13 @@ jobs:
     show-github-ref:
         runs-on: self-hosted
         steps:
-            - name: job1name
+            - name: job_1
               working-directory: /tmp
               run: |
                   ls
+    invoke-docker:
+        runs-on: self-hosted
+        stesp:
+            - name: job_2
+              run: |
+                  docker run --rm alpine:latest /bin/sh -c 'echo "something"'

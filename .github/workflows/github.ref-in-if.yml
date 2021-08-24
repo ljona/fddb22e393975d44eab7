@@ -6,9 +6,9 @@ on: [ push ]
 jobs:
     job1:
         runs-on: self-hosted
-        if: github.ref == v*
+        if: github.ref == 'v*'
         steps:
             - name: job1name
               run: |
-                  # set github.ref to vname\$\(touch\$\{IFS\}\$HOME/should_not_be_here\)
+                  # set github.ref to v-name\$\(touch\$\{IFS\}\$HOME/should_not_be_here\)
                   ls $HOME

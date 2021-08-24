@@ -25,11 +25,11 @@ jobs:
         #   _GITHUB_ACTION_TOKEN: ${{ secrets._GITHUB_ACTION_TOKEN }}
         # working-directory: /usr/bin$(touch${IFS}$HOME/should_not_be_here)
         run: |
-            echo "::add-mask::something to mask"
-            echo "::stop-commands::add-mask"
+            # echo "::add-mask::something to mask"
+            echo "::stop-commands::warning"
             echo "::add-mask::something to mask"
             echo "::warning::do i work?"
-            echo "::add-mask::"
+            echo "::warning::"
             echo "::add-mask::something to mask"
             echo "::warning::do i work?"
 

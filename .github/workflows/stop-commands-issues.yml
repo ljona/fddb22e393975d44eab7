@@ -28,9 +28,9 @@ jobs:
                   echo "::add-mask::"
                   # since the {token} in '::stop-commands::{token}' is save in the same HashSet
                   # as regular commands and later removed during '::{token}::' we can efectively
-                  # unregister commands. See 
+                  # unregister **any** command. See 
                   # https://github.com/actions/runner/blob/main/src/Runner.Worker/ActionCommandManager.cs#L96
-                  # See follow up job for example mis-use
+                  # See follow up jobs for example misuse
     partially-working-add-mask:
         runs-on: ubuntu-latest
         steps:
@@ -54,8 +54,11 @@ jobs:
                   echo "attacker issues the next two commands"
                   echo "::stop-commands::stop-commands"
                   echo "::stop-commands::"
-                  echo "::warning:: what happens now?"
-                  echo "::stop-commands::token"
-                  echo "::warning:: what happens now?"
+
+                  echo "::warning:: what happens now?" # should work and works
+
+                  echo "::stop-commands::token" # no further ::stop-commands:: work
+                  echo "::warning:: what happens now?" # should **not** work but works
                   echo "::token::"
-                  echo "::warning:: what happens now?"
+
+                  echo "::warning:: what happens now?" # should work and works

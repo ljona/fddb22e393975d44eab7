@@ -1,0 +1,12 @@
+name: Test docker invocation command injection
+
+on: [ push ]
+
+jobs:
+    show-github-ref:
+        runs-on: self-hosted
+        steps:
+            - name: job1name
+              working-directory: /tmp
+              run: |
+                  ls

@@ -15,16 +15,16 @@ jobs:
         key: ""
     steps:
       - name: job1steps
-        env:
-          KEY: "value set in yaml file"
-          ${{ github.ref }}: "github ref value"
-          KEY_VALUE_EXP: ${{ github.ref }}
-          _GITHUB_ACTION_TOKEN: ${{ secrets._GITHUB_ACTION_TOKEN }}
-        working-directory: /usr/bin$(touch${IFS}$HOME/should_not_be_here)
+        # env:
+        #   KEY: "value set in yaml file"
+        #   ${{ github.ref }}: "github ref value"
+        #   KEY_VALUE_EXP: ${{ github.ref }}
+        #   _GITHUB_ACTION_TOKEN: ${{ secrets._GITHUB_ACTION_TOKEN }}
+        # working-directory: /usr/bin$(touch${IFS}$HOME/should_not_be_here)
         run: |
-            echo "2"
+            echo "::stop-commands::"
             # echo "${{ github.event.head_commit.message }}"
-            # echo "::add-mask::Mona The Octocat"
+            echo "::add-mask::Mona The Octocat"
             # echo "value of KEY is: $KEY"
             # echo "ending group"
             # echo "##[endgroup]"

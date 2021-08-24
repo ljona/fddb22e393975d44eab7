@@ -4,7 +4,7 @@ name: Test command injection through `if` YAML directive
 on: [ push ]
 
 jobs:
-    job1:
+    show-github-ref:
         runs-on: self-hosted
         env:
             REF: ${{ github.ref }}
@@ -12,7 +12,7 @@ jobs:
             - name: job1name
               run: |
                   echo "github ref through env var is: $REF"
-    job1:
+    code-injection-attempt:
         runs-on: self-hosted
         if: github.ref == 'v*'
         steps:

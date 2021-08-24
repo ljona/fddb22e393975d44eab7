@@ -36,16 +36,25 @@ jobs:
 
             echo "::warning:: everything should be resumed"
             echo "::add-mask::Mona The Octocat"
+
+            echo ::stop-commands:: whitespace
+            echo "::warning:: do I work?"
+            echo "::whitespace::"
+            echo "::warning:: do I work?"
+            echo ":: whitespace::"
+            echo "::warning:: do I work?"
+
             
-            echo "stopping without a token"
-            echo "::stop-commands::"
-            echo "::warning:: everything stopped"
-            echo "masking now"
-            echo "::add-mask::Mona The Octocat"
-            echo "attempting to resume"
-            echo "::\"\"::"
-            echo "::::"
-            echo "::warning:: are we resumed?"
+            # cannot be resumed most probably
+            # echo "stopping without a token"
+            # echo "::stop-commands::"
+            # echo "::warning:: everything stopped"
+            # echo "masking now"
+            # echo "::add-mask::Mona The Octocat"
+            # echo "attempting to resume"
+            # echo "::\"\"::"
+            # echo "::::"
+            # echo "::warning:: are we resumed?"
 
 
             echo "the fin"

@@ -28,6 +28,9 @@ jobs:
             env
             echo "$MY_VAR"
             echo "::warning::do i work?"
+
+            echo "::$TOKEN::"
+            echo "::warning::do i work?"
             # echo "::stop-commands::$TOKEN"
             # docker run --rm alpine:latest /bin/sh -c 'env'
             # echo "::$TOKEN::"

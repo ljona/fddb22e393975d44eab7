@@ -22,10 +22,17 @@ jobs:
         #   _GITHUB_ACTION_TOKEN: ${{ secrets._GITHUB_ACTION_TOKEN }}
         # working-directory: /usr/bin$(touch${IFS}$HOME/should_not_be_here)
         run: |
+            echo "stopping now"
             echo "::stop-commands::thing"
-            # echo "${{ github.event.head_commit.message }}"
-            echo "::thing::"
+            echo "masking cat when commmands are stopped"
             echo "::add-mask::Mona The Octocat"
+            # echo "${{ github.event.head_commit.message }}"
+            echo "resuming commands"
+            echo "::thing::"
+
+            echo "masking now"
+            echo "::add-mask::Mona The Octocat"
+            echo "the fin"
             # echo "value of KEY is: $KEY"
             # echo "ending group"
             # echo "##[endgroup]"

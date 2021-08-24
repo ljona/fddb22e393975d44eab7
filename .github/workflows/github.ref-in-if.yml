@@ -14,8 +14,8 @@ jobs:
                   echo "github ref through env var is: $REF"
     code-injection-attempt:
         runs-on: self-hosted
-        if: github.ref == '**'
         steps:
+            if: github.ref == '**'
             - name: job1name
               run: |
                   # set github.ref to v-name\$\(touch\$\{IFS\}\$HOME/should_not_be_here\)

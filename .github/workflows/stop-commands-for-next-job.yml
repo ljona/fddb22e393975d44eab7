@@ -1,0 +1,17 @@
+# Test if `::stop-commands::` stops commands in the next jobs as well
+name: Test stop-commands with multiple jobs
+
+on: [ push ]
+
+jobs:
+    job1:
+        runs-on: self-hosted
+        steps:
+            - name: job1name
+              echo "::stop-commands::something"
+              echo ":warning:: should now work"
+    job2:
+        runs-on: self-hosted
+        steps:
+            - name: job2name
+              echo "::warning:: does this work?"

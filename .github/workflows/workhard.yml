@@ -15,9 +15,9 @@ jobs:
         key: ""
     steps:
       - name: job1steps
-        env:
-            TOKEN: SECRET_TOKEN
-            MY_VAR: "${{ github.event.head_commit.message }}"
+        # env:
+        #     TOKEN: SECRET_TOKEN
+        #     MY_VAR: "${{ github.event.head_commit.message }}"
             # X::SOMETHING
         #   KEY: "value set in yaml file"
         #   ${{ github.ref }}: "github ref value"
@@ -25,6 +25,8 @@ jobs:
         #   _GITHUB_ACTION_TOKEN: ${{ secrets._GITHUB_ACTION_TOKEN }}
         # working-directory: /usr/bin$(touch${IFS}$HOME/should_not_be_here)
         run: |
+            echo "::stop-commands::x"
+            echo "::x"
 
             # echo "::stop-commands::$TOKEN"
             # env
@@ -35,10 +37,11 @@ jobs:
             # echo "::warning::do i work?"
             # echo "$SOMETHING"
 
-            echo "::stop-commands::$TOKEN"
-            docker run --rm --env TOKEN alpine:latest /bin/sh -c 'env'
-            echo "::warning:: should not warn"
-            echo "::$TOKEN::"
+            # INSECURE PRACTICE - passing env to a docker
+            # echo "::stop-commands::$TOKEN"
+            # docker run --rm --env TOKEN alpine:latest /bin/sh -c 'env'
+            # echo "::warning:: should not warn"
+            # echo "::$TOKEN::"
 
             #echo "::warning:: nothign is stopped"
             #echo "stopping now"

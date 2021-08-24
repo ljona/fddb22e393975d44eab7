@@ -9,11 +9,11 @@ jobs:
         steps:
             - name: job1name
               run: |
-              echo "::stop-commands::something"
-              echo "::warning:: should now work"
+                  echo "::stop-commands::something"
+                  echo "::warning:: should now work"
     job2:
         runs-on: self-hosted
         steps:
             - name: job2name
               run: |
-              echo "::warning:: does this work?"
+                  echo "::warning:: does this work?"

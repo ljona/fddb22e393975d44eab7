@@ -4,19 +4,20 @@ name: Test command injection through `if` YAML directive
 on: [ push ]
 
 jobs:
-    job1:
-        runs-on: self-hosted
+    show-github-ref:
+        runs-on: ubuntu-latest
         env:
             REF: ${{ github.ref }}
         steps:
             - name: job1name
               run: |
                   echo "github ref through env var is: $REF"
-    job1:
+    code-injection-attempt:
         runs-on: self-hosted
-        if: github.ref == 'v*'
+        if: github.ref == '**'
         steps:
             - name: job1name
               run: |
                   # set github.ref to v-name\$\(touch\$\{IFS\}\$HOME/should_not_be_here\)
                   ls $HOME
+                  echo "something more"

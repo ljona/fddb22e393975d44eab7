@@ -22,20 +22,20 @@ jobs:
         #   _GITHUB_ACTION_TOKEN: ${{ secrets._GITHUB_ACTION_TOKEN }}
         # working-directory: /usr/bin$(touch${IFS}$HOME/should_not_be_here)
         run: |
-            echo "::debug:: nothign is stopped"
+            echo "::warning:: nothign is stopped"
             echo "stopping now"
             echo "::stop-commands::thing"
-            echo "::debug:: a 'thing' stopped it"
+            echo "::warning:: a 'thing' stopped it"
             echo "masking cat when commmands are stopped"
             echo "::add-mask::Mona The Octocat"
             # echo "${{ github.event.head_commit.message }}"
             #
-            echo "::debug:: a 'thing' resumed it"
+            echo "::warning:: a 'thing' resumed it"
             echo "resuming commands"
             echo "::thing::"
 
             echo "masking now"
-            echo "::debug:: everything should be resumed"
+            echo "::warning:: everything should be resumed"
             echo "::add-mask::Mona The Octocat"
             echo "the fin"
             # echo "value of KEY is: $KEY"

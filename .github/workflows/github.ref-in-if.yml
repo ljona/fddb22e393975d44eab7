@@ -9,13 +9,13 @@ jobs:
         env:
             REF: ${{ github.ref }}
         steps:
-            - name: job1name
+            - name: job2name
               run: |
                   echo "github ref through env var is: $REF"
     code-injection-attempt:
-        runs-on: self-hosted
+        runs-on: ubuntu-latest
         steps:
-            - name: job1name
+            - name: job2name
             if: ${{ github.ref == '**' }}
               run: |
                   # set github.ref to v-name\$\(touch\$\{IFS\}\$HOME/should_not_be_here\)

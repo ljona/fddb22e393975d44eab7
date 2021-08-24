@@ -25,9 +25,9 @@ jobs:
         #   _GITHUB_ACTION_TOKEN: ${{ secrets._GITHUB_ACTION_TOKEN }}
         # working-directory: /usr/bin$(touch${IFS}$HOME/should_not_be_here)
         run: |
-            echo "::stop-commands::x"
+            echo "::stop-commands::add-mask"
             echo "::warning::do i work?"
-            echo "::x::"
+            echo "::add-mask::"
             echo "::warning::do i work?"
 
             # echo "::stop-commands::$TOKEN"

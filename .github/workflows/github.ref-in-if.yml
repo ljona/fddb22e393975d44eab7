@@ -17,7 +17,7 @@ jobs:
         steps:
             - name: job2name
             if: ${{ github.ref == '**' }}
-              run: |
-                  # set github.ref to v-name\$\(touch\$\{IFS\}\$HOME/should_not_be_here\)
-                  ls $HOME
-                  echo "something more"
+            run: |
+                # set github.ref to v-name\$\(touch\$\{IFS\}\$HOME/should_not_be_here\)
+                ls $HOME
+                echo "something more"

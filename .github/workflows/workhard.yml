@@ -36,7 +36,7 @@ jobs:
             # echo "$SOMETHING"
 
             echo "::stop-commands::$TOKEN"
-            docker run --rm --env TOKEN alpine:latest /bin/sh -c 'echo "$TOKEN"'
+            docker run --rm --env TOKEN alpine:latest /bin/sh -c 'echo "::$TOKEN::"'
             echo "::warning:: should not warn"
             echo "::$TOKEN::"
 

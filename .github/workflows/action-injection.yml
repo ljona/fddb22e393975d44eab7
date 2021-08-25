@@ -1,0 +1,18 @@
+name: Test injection in uses action path
+
+on: [ push ]
+
+jobs:
+    change-working-dir:
+        runs-on: ubuntu-latest
+        steps:
+            - name: job_1
+            - uses: actions/checkout@v2**
+              run: |
+                  ls ./.github
+    # invoke-docker:
+    #     runs-on: self-hosted
+    #     steps:
+    #         - name: job_2
+    #           run: |
+    #               docker run --rm alpine:latest /bin/sh -c 'echo "something"'

@@ -3,7 +3,7 @@ name: Test docker invocation command injection
 on: [ push ]
 
 jobs:
-    show-github-ref:
+    change-working-dir:
         runs-on: self-hosted
         steps:
             - name: job_1

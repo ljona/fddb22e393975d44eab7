@@ -1,0 +1,18 @@
+name: XSS in group title
+
+on: [ push ]
+
+jobs:
+    job1:
+      runs-on: ubuntu-latest
+      steps:
+          - name: job_1
+            working-directory: /tmp
+            run: |
+              echo "::group::normal-group"
+              echo "in a group"
+              echo "::endgroup::"
+
+              echo "::group::<script>alert(XSS);</script>"
+              echo "something"
+              echo "::endgroup::"

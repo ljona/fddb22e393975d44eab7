@@ -5,7 +5,7 @@ on: [ push ]
 
 jobs:
     try-calling-set-env-as-stop-token:
-      runs-on: ubuntu-latest
+        runs-on: ubuntu-latest
         steps:
             - name: job_1
               run: |

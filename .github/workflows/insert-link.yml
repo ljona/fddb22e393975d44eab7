@@ -12,3 +12,10 @@ jobs:
                 echo "::warning file=file.txt,line=1,col=5,endColumn=7::Missing semicolon"
                 echo "::warning file=$GITHUB_WORKSPACE/file.txt,line=1,col=5,endColumn=7/www.google.com::Missing semicolon"
                 echo "::notice file=file.txt,line=1,col=5,endColumn=7::Missing semicolon"
+                echo "::error file=file.txt,line=1,col=5,endColumn=7::Missing semicolon"
+                echo "::error path=file.txt,line=1,col=5,endColumn=7::Missing semicolon"
+                echo "::error file=file.txt::Missing semicolon"
+
+                echo "::warning file=file.txt::Missing semicolon"
+                echo "::notice file=file.txt::Missing semicolon"
+                echo "::error file=file.txt::Missing semicolon"

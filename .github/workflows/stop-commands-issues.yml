@@ -1,0 +1,64 @@
+# Test various issues with ::stop-commands::
+name: stop-commands issues
+
+on: [ push ]
+
+jobs:
+    cannot-recover-from-stopped-commands-without-token:
+        runs-on: ubuntu-latest
+        steps:
+            - name: job_1
+              run: |
+                  echo "attacker issues the next workflow command"
+                  echo "::stop-commands::"
+                  # because the token is missing we cannot recover, see
+                  # https://github.com/actions/runner/blob/main/src/Runner.Worker/ActionCommandManager.cs#L91
+                  # calling '::::' nor '::""::' does not help here
+                  echo '::::'
+                  echo '::""::'
+                  echo '::warning:: this now does not work'
+
+    unregister-command-using-stop-commands:
+        runs-on: ubuntu-latest
+        steps:
+            - name: job_2a
+              run: |
+                  echo "attacker issues the next two workflow commands"
+                  echo "::stop-commands::add-mask"
+                  echo "::add-mask::"
+                  # since the {token} in '::stop-commands::{token}' is save in the same HashSet
+                  # as regular commands and later removed during '::{token}::' we can efectively
+                  # unregister **any** command. See 
+                  # https://github.com/actions/runner/blob/main/src/Runner.Worker/ActionCommandManager.cs#L96
+                  # See follow up jobs for example misuse
+    partially-working-add-mask:
+        runs-on: ubuntu-latest
+        steps:
+            - name: job_2b
+              run: |
+                  echo "masking works"
+                  echo "::add-mask::old-secret"
+                  echo "attacker issues the next two commands"
+                  echo "::stop-commands::add-mask"
+                  echo "::add-mask::"
+                  echo "masking old secrets still work - I suppose they stay loaded in some RegexMatcher"
+                  echo "::add-mask::old-secret"
+                  echo "however using add-mask on newer secrets does not work - the command is unregistered"
+                  echo "::add-mask::new-secret"
+    prevent-future-stop-commands:
+        # we can use the previous issue with token to unregister any future ::stop-commands::
+        runs-on: ubuntu-latest
+        steps:
+            - name: job_2c
+              run: |
+                  echo "attacker issues the next two commands"
+                  echo "::stop-commands::stop-commands"
+                  echo "::stop-commands::"
+
+                  echo "::warning:: what happens now?" # should work and works
+
+                  echo "::stop-commands::token" # no further ::stop-commands:: work
+                  echo "::warning:: what happens now?" # should **not** work but works
+                  echo "::token::"
+
+                  echo "::warning:: what happens now?" # should work and works

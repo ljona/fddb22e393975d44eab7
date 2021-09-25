@@ -1,0 +1,15 @@
+# Test various issues with ::stop-commands::
+name: stop-commands set-env
+
+on: [ push ]
+
+jobs:
+    try-calling-set-env-as-stop-token:
+      runs-on: ubuntu-latest
+        steps:
+            - name: job_1
+              run: |
+                  echo "attacker issues the next workflow command"
+                  echo "::stop-commands::set-env name=MY_ENV_VAR::VALUE"
+                  echo "::set-env name=MY_ENV_VAR::VALUE::"
+                  env

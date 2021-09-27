@@ -5,8 +5,8 @@ jobs:
   save-state:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
     - name: job1
+      uses: actions/checkout@master
       pre: |
           echo "::save-state name=MY_VAL::123456"
 

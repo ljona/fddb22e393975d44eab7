@@ -30,3 +30,4 @@ jobs:
                 echo "::save-state name=\x00a::123456"
                 echo "::save-state name=b::123\x00456"
                 env
+              post: env

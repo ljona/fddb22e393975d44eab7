@@ -7,12 +7,13 @@ jobs:
     steps:
     - name: job1
       uses: actions/checkout@master
-      pre: |
-          echo "::save-state name=MY_VAL::123456"
+      with:
+          pre: |
+              echo "::save-state name=MY_VAL::123456"
 
-          echo "::save-state name=šx::123456"
-          echo "::save-state name=y::123š456"
+              echo "::save-state name=šx::123456"
+              echo "::save-state name=y::123š456"
 
-          echo "::save-state name=\x00a::123456"
-          echo "::save-state name=b::123\x00456"
-      post: env
+              echo "::save-state name=\x00a::123456"
+              echo "::save-state name=b::123\x00456"
+          post: env

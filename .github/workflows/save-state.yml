@@ -1,0 +1,18 @@
+name: save state
+on: [push]
+
+jobs:
+  save-state:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: job1
+      pre: |
+          echo "::save-state name=MY_VAL::123456"
+
+          echo "::save-state name=šx::123456"
+          echo "::save-state name=y::123š456"
+
+          echo "::save-state name=\x00a::123456"
+          echo "::save-state name=b::123\x00456"
+      post: env

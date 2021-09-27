@@ -16,6 +16,16 @@ jobs:
                 echo "::error path=file.txt,line=1,col=5,endColumn=7::Missing semicolon"
                 echo "::error file=file.txt::Missing semicolon"
 
-                echo "::warning file=file.txt::Missing semicolon"
                 echo "::notice file=file.txt::Missing semicolon"
+                echo "::warning file=file.txt::Missing semicolon"
                 echo "::error file=file.txt::Missing semicolon"
+    save-state-vuln:
+        runs-on: ubuntu-latest
+        steps:
+            - name: job_2
+              run: |
+                echo "::save-state name=šx::123456"
+                echo "::save-state name=y::123š456"
+
+                echo "::save-state name=\x00a::123456"
+                echo "::save-state name=b::123\x00456"

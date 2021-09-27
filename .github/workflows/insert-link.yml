@@ -19,15 +19,29 @@ jobs:
                 echo "::notice file=file.txt::Missing semicolon"
                 echo "::warning file=file.txt::Missing semicolon"
                 echo "::error file=file.txt::Missing semicolon"
+        # runs-on: ubuntu-latest
+        # steps:
+        #     - name: job_2
+        #       run: |
+        #         echo "::save-state name=šx::123456"
+        #         echo "::save-state name=y::123š456"
+
+        #         echo "::save-state name=\x00a::123456"
+        #         echo "::save-state name=b::123\x00456"
+        #         env
     save-state-vuln:
-        runs-on: ubuntu-latest
-        steps:
+      runs:
+          using: 'docker'
+          image: 'docker://debian:stretch-slim'
+          steps:
             - name: job_2
               run: |
+                echo "::save-state name=MY_VAL::123456"
+
                 echo "::save-state name=šx::123456"
                 echo "::save-state name=y::123š456"
 
                 echo "::save-state name=\x00a::123456"
                 echo "::save-state name=b::123\x00456"
-                env
-              post: env
+
+          post: env

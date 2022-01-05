@@ -1,5 +1,5 @@
 # Test various issues with ::stop-commands::
-name: stop-commands leak
+name: stop-commands" leak
 
 on: [ push ]
 

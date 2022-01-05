@@ -1,0 +1,16 @@
+# Test various issues with ::stop-commands::
+name: stop-commands leak
+
+on: [ push ]
+
+jobs:
+    cannot-recover-from-stopped-commands-without-token:
+        runs-on: ubuntu-latest
+        steps:
+            - name: job_1
+              run: |
+                  # use the recommended way of stopping future commands
+                  echo "::stop-commands::`echo -n ${{ github.token }} | sha256sum | head -c 64`::"
+                  # commands are stopped, the next line leak the token for stopping
+                  echo "::stop-commands::"
+                  echo "heeere"

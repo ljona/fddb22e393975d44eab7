@@ -1,1 +1,2 @@
 This is a simple and empty file.
+nop

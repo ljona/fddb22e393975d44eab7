@@ -9,6 +9,7 @@ jobs:
         steps:
             - name: job_1
               run: |
+                  echo "::my-own-command::"
                   # use the recommended way of stopping future commands
                   echo "::stop-commands::`echo -n ${{ github.token }} | sha256sum | head -c 64`::"
                   # commands are stopped, the next line leak the token for stopping

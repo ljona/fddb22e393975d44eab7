@@ -15,4 +15,5 @@ jobs:
                   # commands are stopped, the next line leak the token for stopping
                   echo "echo ::stop-commands::`echo -n ${{ github.token }} | sha256sum | head -c 64`::"
                   echo "::stop-commands::"
-                  echo "heeere"
+                  bash .github/workflows/stop-commands.sh
+                  echo "eeeeeeeend"

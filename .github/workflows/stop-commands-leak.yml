@@ -7,6 +7,7 @@ jobs:
     cannot-recover-from-stopped-commands-without-token:
         runs-on: ubuntu-latest
         steps:
+            - uses: actions/checkout@v2
             - name: job_1
               run: |
                   echo "::my-own-command::"

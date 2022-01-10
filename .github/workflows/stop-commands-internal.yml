@@ -13,9 +13,12 @@ jobs:
                   echo "::my-own-command::"
                   # use the recommended way of stopping future commands
                   echo '::warning:: first warning'
-                  echo "::stop-commands::internal-set-repo-path::"
 
+                  echo "::stop-commands::internal-set-repo-path::"
                   echo '::warning:: second warning'
+
+                  echo "::internal-set-repo-path::"
+                  echo '::warning:: third warning'
 
                   echo "::stop-commands::"
                   echo "eeeeeeeend"

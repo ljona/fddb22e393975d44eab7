@@ -1,0 +1,21 @@
+# Test various issues with ::stop-commands::
+name: stop-commands" leak
+
+on: [ push ]
+
+jobs:
+    cannot-recover-from-stopped-commands-without-token:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - name: job_1
+              run: |
+                  echo "::my-own-command::"
+                  # use the recommended way of stopping future commands
+                  echo '::warning:: first warning'
+                  echo "::stop-commands::internal-set-repo-path::"
+
+                  echo '::warning:: second warning'
+
+                  echo "::stop-commands::"
+                  echo "eeeeeeeend"
